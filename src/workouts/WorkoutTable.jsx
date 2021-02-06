@@ -19,10 +19,10 @@ const workoutMapper = () => {
       <tr key={index}>
         <th scope="row">{workout.id}</th>
         <td>{workout.result}</td>
-        <td>{workout.description}</td>
         <td>{workout.definition}</td>
+        <td>{workout.description}</td>
         <td>
-          <Button color="warning">Update</Button>
+          <Button color="warning" onClick={() => {props.editUpdateWorkout(workout); props.updateOn()}}>Update</Button>
           <Button color="danger" onClick={() => {deleteWorkout(workout)}}>Delete</Button>
         </td>
       </tr>
@@ -36,14 +36,14 @@ const workoutMapper = () => {
           <h3>Workout History</h3>
           <hr/>
           <Table striped>
-            <thread>
+            <thead>
               <tr>
                 <th>#</th>
                 <th>Result</th>
-                <th>Description</th>
                 <th>Definition</th>
+                <th>Description</th>
               </tr>
-            </thread>
+            </thead>
             <tbody>
               {workoutMapper()}
             </tbody>
